@@ -5,12 +5,15 @@ let balloonImg;
 let gameoverImg;
 let button;
 let menubg;
+let popSound1, popSound2;
 
 var score = 0;
 var wave = 0;
 
 function preload() {
   font = loadFont('Fonts/font.ttf');
+  popSound1 = loadSound('SFX/pop.mp3');
+  popSound2 = loadSound('SFX/pop2.mp3');
 
   gameoverImg = loadImage('Pictures/gameover.png');
   cloudImg = loadImage('Pictures/clouds.png');

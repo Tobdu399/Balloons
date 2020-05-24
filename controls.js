@@ -28,6 +28,7 @@ function mouseClicked() {
 
         balloons[i].isAlive = false;
         score = score + 1;
+        balloons[i].pop();
       }
     }
   }

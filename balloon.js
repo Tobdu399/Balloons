@@ -4,25 +4,41 @@ let gameover = false;
 
 function Balloon() {
   this.x = random(40, width-140);
-  this.y = random(height, height+400);
+  this.y = random(height, height+500);
   this.isAlive = true;
 
-  this.speed = random(-1, -3);
+  this.speed = random(-1, -2.5);
   this.yspeed = this.speed;
+
+  this.pop = function() {
+    let soundToPlay = Math.floor(random(1, 3));
+
+    if (soundToPlay == 1) {
+      popSound1.play();
+    } else if (soundToPlay == 2) {
+      popSound2.play();
+    }
+  }
 
   this.update = function() {
     // Ball must be alive and below the "ceiling"
-    if (this.isAlive == true && this.y > 0) {
+    if (this.isAlive == true && this.y > -10) {
       this.y += this.yspeed;
       image(balloonImg, this.x, this.y, 75, 95);
-    } else if (this.y < 0) {
+    }
 
+    // If this.y is smaller than 0, game ends
+    else if (this.y < 0) {
       // Image width: 355, height: 150 (px)
       gameover = true;
       image(gameoverImg, width/2 - 355/2, height/2 - 150/2);
 
-      this.yspeed = 0;
-      this.speed = 0;
+      fill(0);
+      textSize(30);
+      textFont('Helvetica');
+
+      // Center the text below the Game Over image
+      text("Press R to restart", width/2-width/5.1, height/2+height/8);
 
       return;
     }
