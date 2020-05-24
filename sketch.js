@@ -2,6 +2,7 @@ let font;
 let cloudImg;
 let groundImg;
 let balloonImg;
+let gameoverImg;
 let button;
 let menubg;
 
@@ -11,6 +12,7 @@ var wave = 0;
 function preload() {
   font = loadFont('Fonts/font.ttf');
 
+  gameoverImg = loadImage('Pictures/gameover.png');
   cloudImg = loadImage('Pictures/clouds.png');
 	groundImg = loadImage('Pictures/ground.png');
   balloonImg = loadImage('Pictures/balloon.png');
@@ -19,7 +21,7 @@ function preload() {
 }
 
 function setup() {
-	frameRate(30);
+	frameRate(60);
 	createCanvas(600, 600);
 
   displayBalloons();        // Display balloons
@@ -38,7 +40,6 @@ function draw() {
 
   for (let i=0; i<balloons.length; i++) {
     balloons[i].update();
-    balloons[i].check();
   }
 
 	image(groundImg, 0, height-80, width);
