@@ -12,6 +12,7 @@ function Balloon(color) {
   this.yspeed = this.speed;
 
   this.pop = function() {
+    // Choose wich sound to play
     let soundToPlay = Math.floor(random(1, 3));
 
     if (soundToPlay == 1) {

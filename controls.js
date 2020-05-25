@@ -8,10 +8,10 @@ function keyPressed() {
   }
 
   // Open and close menu if ESC is pressed
-  else if (keyCode === 27 && menu.isOpen == false) {
+  else if (keyCode === 27 && running == true && menu.isOpen == false) {
     menu.isOpen = true;
     pause(true);
-  } else if (keyCode === 27 && menu.isOpen == true) {
+  } else if (keyCode === 27 && running == true && menu.isOpen == true) {
     menu.isOpen = false;
     pause(false);
   }
@@ -37,19 +37,24 @@ function mouseClicked() {
 // Menu
 // Check if mouse is pressed on top of the menu icon
 function mousePressed() {
-  if (menu.isOpen === false &&
-      mouseX >= 20 && mouseX < 56 &&
-      mouseY >= 20 && mouseY < 56) {
-
-    menu.isOpen = true;
-    pause(true);
-  } else if (menu.isOpen === true &&
-      mouseX >= 20 && mouseX < 56 &&
-      mouseY >= 20 && mouseY < 56) {
-
-    menu.isOpen = false;
-    pause(false);
+  if (running == false) {
+    running = true;
+    song.play();    // Play the song in a loop
   } else {
-    return;
+    if (menu.isOpen === false &&
+        mouseX >= 20 && mouseX < 56 &&
+        mouseY >= 20 && mouseY < 56) {
+
+      menu.isOpen = true;
+      pause(true);
+    } else if (menu.isOpen === true &&
+        mouseX >= 20 && mouseX < 56 &&
+        mouseY >= 20 && mouseY < 56) {
+
+      menu.isOpen = false;
+      pause(false);
+    } else {
+      return;
+    }
   }
 }
