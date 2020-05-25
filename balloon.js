@@ -4,7 +4,7 @@ let gameover = false;
 
 function Balloon(color) {
   this.x = random(40, width-140);
-  this.y = random(height, height+500);
+  this.y = random(height, height*2);
   this.isAlive = true;
 
   this.speed = random(-1, -2.5);
@@ -22,8 +22,8 @@ function Balloon(color) {
   }
 
   this.update = function() {
-    // Ball must be alive and below the "ceiling"
-    if (this.isAlive == true && this.y > -10) {
+    // Display balloons until they are on top of the canvas
+    if (this.isAlive == true && this.y > -1) {
       this.y += this.yspeed;
       image(color, this.x, this.y, 75, 95);
     }

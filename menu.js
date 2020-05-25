@@ -16,8 +16,10 @@ function Menu() {
 function pause(stop) {
   for (let i=0; i<balloons.length; i++) {
     if (stop == true) {
+      song.pause();
       balloons[i].yspeed = 0;
     } else if (stop == false) {
+      song.loop();
       balloons[i].yspeed = balloons[i].speed;
     }
   }
