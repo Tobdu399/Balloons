@@ -23,8 +23,8 @@ function mouseClicked() {
   if (gameover == false) {
     for (let i=0; i<balloons.length; i++) {
       if (balloons[i].isAlive == true &&
-          mouseX >= balloons[i].x && mouseX < balloons[i].x + 80 &&
-          mouseY >= balloons[i].y && mouseY < balloons[i].y + 75) {
+          mouseX >= balloons[i].x && mouseX < balloons[i].x + 90 &&
+          mouseY >= balloons[i].y && mouseY < balloons[i].y + 80) {
 
         balloons[i].isAlive = false;
         score = score + 1;

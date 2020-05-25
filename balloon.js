@@ -2,12 +2,13 @@ let balloonsAmount = 5;   // 10 in the beginning
 let balloons = []
 let gameover = false;
 
-function Balloon() {
+function Balloon(color) {
   this.x = random(40, width-140);
   this.y = random(height, height+500);
   this.isAlive = true;
 
   this.speed = random(-1, -2.5);
+  this.color = color;
   this.yspeed = this.speed;
 
   this.pop = function() {
@@ -24,21 +25,14 @@ function Balloon() {
     // Ball must be alive and below the "ceiling"
     if (this.isAlive == true && this.y > -10) {
       this.y += this.yspeed;
-      image(balloonImg, this.x, this.y, 75, 95);
+      image(color, this.x, this.y, 75, 95);
     }
 
-    // If this.y is smaller than 0, game ends
+    // If the y position is smaller than 0, game ends
     else if (this.y < 0) {
       // Image width: 355, height: 150 (px)
       gameover = true;
       image(gameoverImg, width/2 - 355/2, height/2 - 150/2);
-
-      fill(0);
-      textSize(30);
-      textFont('Helvetica');
-
-      // Center the text below the Game Over image
-      text("Press R to restart", width/2-width/5.1, height/2+height/8);
 
       return;
     }
@@ -71,6 +65,16 @@ function displayBalloons() {
   wave += 1;
 
   for (let i=0; i < balloonsAmount; i++) {
-    balloons[i] = new Balloon();
+    let color = Math.floor(random(1, 4));
+
+    if (color == 1) {
+      color = balloonImgRed;
+    } else if (color == 2) {
+      color = balloonImgBlue;
+    } else if (color == 3) {
+      color = balloonImgYellow;
+    }
+
+    balloons[i] = new Balloon(color);
   }
 }

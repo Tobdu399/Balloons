@@ -1,7 +1,9 @@
 let font;
 let cloudImg;
 let groundImg;
-let balloonImg;
+
+let balloonImgRed, balloonImgBlue, balloonImgYellow;
+
 let gameoverImg;
 let button;
 let menubg;
@@ -18,7 +20,11 @@ function preload() {
   gameoverImg = loadImage('Pictures/gameover.png');
   cloudImg = loadImage('Pictures/clouds.png');
 	groundImg = loadImage('Pictures/ground.png');
-  balloonImg = loadImage('Pictures/balloon.png');
+
+  balloonImgRed = loadImage('Pictures/balloonred.png');
+  balloonImgBlue = loadImage('Pictures/balloonblue.png');
+  balloonImgYellow = loadImage('Pictures/balloonyellow.png');
+
   menubg = loadImage('Pictures/menubg.png');
   button = createImg('Pictures/menu.png');
 }
