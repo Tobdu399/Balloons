@@ -20,7 +20,7 @@ function keyPressed() {
 // Balloons
 // Check if mouse is clicked on top of a balloon
 function mouseClicked() {
-  if (gameover == false) {
+  if (gameover == false && stop == false) {
     for (let i=0; i<balloons.length; i++) {
       if (balloons[i].isAlive == true &&
           mouseX >= balloons[i].x && mouseX < balloons[i].x + 90 &&

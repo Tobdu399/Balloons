@@ -1,4 +1,5 @@
 let menu;
+let stop = false;
 
 function Menu() {
   this.isOpen = false;
@@ -13,12 +14,14 @@ function Menu() {
   }
 }
 
-function pause(stop) {
+function pause(pause) {
+  stop = pause;
+
   for (let i=0; i<balloons.length; i++) {
-    if (stop == true) {
+    if (pause == true) {
       song.pause();
       balloons[i].yspeed = 0;
-    } else if (stop == false) {
+    } else if (pause == false) {
       song.loop();
       balloons[i].yspeed = balloons[i].speed;
     }
